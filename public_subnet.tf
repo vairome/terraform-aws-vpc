@@ -6,7 +6,7 @@ resource "aws_subnet" "public_subnets" {
   vpc_id                  = aws_vpc.main_vpc.id
 
   tags = {
-    Name = "public_subnet_eks_${count.index}"
+    Name                                        = "public_subnet_eks_${count.index}"
     "kubernetes.io/cluster/${var.cluster-name}" = "shared",
     "kubernetes.io/role/elb"                    = 1
   }
@@ -51,7 +51,7 @@ resource "aws_nat_gateway" "nat_gws" {
   subnet_id     = aws_subnet.public_subnets.*.id[count.index]
 
   tags = {
-    Name        = "nat-${count.index}"
+    Name = "nat-${count.index}"
   }
 
   depends_on = [aws_internet_gateway.main_igw]

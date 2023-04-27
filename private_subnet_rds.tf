@@ -12,8 +12,8 @@ resource "aws_subnet" "private_subnets_rds" {
 }
 
 resource "aws_db_subnet_group" "rds_subnet_group" {
-  name        = "rds_subnet_group"
-  subnet_ids  = aws_subnet.private_subnets_rds.*.id
+  name       = "rds_subnet_group"
+  subnet_ids = aws_subnet.private_subnets_rds.*.id
 
   depends_on = [
     aws_subnet.private_subnets_rds

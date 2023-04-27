@@ -17,7 +17,7 @@ resource "aws_route_table" "private_eks_rt" {
   count  = 1
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.nat_gws.*.id[count.index]
   }
 

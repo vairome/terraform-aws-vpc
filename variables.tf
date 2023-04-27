@@ -11,13 +11,13 @@ variable "vpc_cidr" {
 variable "private_subnets_eks_cidr" {
   type        = list(any)
   description = "CIDR block for EKS Private Subnet"
-  default     = ["10.0.1.0/24","10.0.2.0/24"]
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
 variable "private_subnets_rds_cidr" {
   type        = list(any)
   description = "CIDR block for RDS Private Subnet"
-  default     = ["10.0.3.0/24", "10.0.4.0/24" ]
+  default     = ["10.0.3.0/24", "10.0.4.0/24"]
 }
 
 variable "public_subnets_cidr" {
@@ -28,12 +28,12 @@ variable "public_subnets_cidr" {
 
 variable "cluster-name" {
   type    = string
-  default = "mlflow-cluster"
+  default = null
 }
 
 variable "availability_zones" {
-  type    = list(any)
-  default = ["us-east-1a", "us-east-1b"] 
+  type        = list(any)
+  default     = ["us-east-1a", "us-east-1b"]
   description = "list of availability zones for the project"
 }
 
